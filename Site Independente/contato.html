@@ -1,0 +1,237 @@
+<!DOCTYPE html> 
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato - Independente FC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9; /* fundo claro */
+      color: #003300; /* texto escuro */
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      background-color: #ffd700; /* amarelo */
+      color: #003300; /* texto escuro */
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    nav {
+      background-color: #006400; /* verde escuro */
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: white; /* fundo claro */
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    h2 {
+      color: #ffd700; /* amarelo */
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #ffd700; /* amarelo */
+      color: #003300; /* texto escuro */
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e6c200; /* tom mais escuro de amarelo ao passar o mouse */
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #003300; /* texto escuro */
+      transition: color 0.3s;
+    }
+
+    /* Tema escuro */
+    body.light-mode {
+      background-color: #121212; /* fundo escuro */
+      color: #e0e0e0; /* texto claro */
+    }
+
+    header.light-mode {
+      background-color: #1f1f1f; /* fundo escuro no cabeçalho */
+      color: #ffd700; /* amarelo */
+    }
+
+    nav.light-mode {
+      background-color: #006400; /* verde escuro */
+    }
+
+    nav.light-mode a {
+      color: white; /* texto branco nos links */
+    }
+
+    main.light-mode {
+      background-color: #1f1f1f; /* fundo escuro no conteúdo */
+      border: 1px solid #444444; /* borda clara */
+    }
+
+    h2.light-mode {
+      color: #ffd700; /* amarelo */
+    }
+
+    label.light-mode {
+      color: #e0e0e0; /* texto claro */
+    }
+
+    input.light-mode, textarea.light-mode {
+      background-color: #333333; /* fundo escuro nos campos */
+      color: #e0e0e0; /* texto claro */
+      border: 1px solid #666666; /* borda clara */
+    }
+
+    button.light-mode {
+      background-color: #003300; /* verde escuro */
+      color: white;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 20px;
+      }
+
+      nav a {
+        margin: 0 10px;
+        font-size: 14px;
+      }
+
+      main {
+        padding: 15px;
+      }
+
+      .theme-toggle {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="./fotos/1000219826-removebg-preview.png" alt="Logo Independente">
+    <h1>Independente Futebol Clube - Contato</h1>
+    <span class="theme-toggle" id="theme-toggle">🌙</span>
+  </header>
+
+  <nav>
+    <a href="./index.html">Inicio</a>
+    <a href="#">Time</a>
+    <a href="./Doação.html">Doação</a>
+    <a href="#">Amistosos</a>
+    <a href="#">Atualizações</a>
+    <a href="#">Contato</a>
+  </nav>
+
+  <main>
+    <h2>Entre em contato conosco</h2>
+    <form action="https://independente-backend.onrender.com" method="POST">
+
+
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Verificar se o tema foi salvo no armazenamento local
+    if (localStorage.getItem('theme') === 'light') {
+      body.classList.add('light-mode');
+      themeToggle.textContent = '🌞'; // Sol para o tema claro
+    } else {
+      body.classList.remove('light-mode');
+      themeToggle.textContent = '🌙'; // Lua para o tema escuro
+    }
+
+    // Alternar o tema
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+      if (body.classList.contains('light-mode')) {
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '🌞'; // Sol para o tema claro
+      } else {
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '🌙'; // Lua para o tema escuro
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+

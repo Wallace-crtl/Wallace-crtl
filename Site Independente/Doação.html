@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Independente Futebol Clube</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-light: #fefce8;
+      --bg-dark: #121212;
+      --text-light: #333;
+      --text-dark: #f1f1f1;
+      --primary: #ffd700;
+      --secondary: #006400;
+      --accent: #fff9db;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    header {
+      background-color: var(--primary);
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      color: var(--secondary);
+      margin: 0;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: var(--secondary);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    body.dark-mode .container {
+      background-color: #1e1e1e;
+    }
+
+    .container h2 {
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+
+    .pix-key {
+      font-size: 18px;
+      background-color: var(--accent);
+      border: 2px dashed var(--primary);
+      color: var(--secondary);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      word-break: break-word;
+    }
+
+    .qr-code img {
+      max-width: 200px;
+      height: auto;
+      margin: 20px 0;
+      border: 3px solid var(--primary);
+      border-radius: 10px;
+    }
+
+    .instructions {
+      font-size: 15px;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #fff;
+      padding: 20px;
+      background-color: var(--secondary);
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 20px;
+        padding: 15px;
+      }
+
+      .pix-key {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Independente Futebol Clube</h1>
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+  </header>
+
+  <div class="container">
+    <h2>Faça uma Doação via PIX</h2>
+    <p>Sua contribuição ajuda a manter nosso time forte e nosso projeto vivo!</p>
+
+    <div class="pix-key">
+      Chave PIX: <strong>(91)988485603</strong>
+    </div>
+
+    <div class="qr-code">
+      <img src="./fotos/qrcode-pix.png" alt="QR Code PIX">
+    </div>
+
+    <p class="instructions">
+      Aponte a câmera do seu celular para o QR Code acima ou copie a chave PIX para doar.<br>
+      Toda ajuda é bem-vinda. Obrigado por apoiar o Independente FC!
+    </p>
+  </div>
+
+  <footer>
+    &copy; 2025 Independente FC - Todos os direitos reservados
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('themeToggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'dark' || (prefersDark && !savedTheme)) {
+      document.body.classList.add('dark-mode');
+      toggleBtn.textContent = '☀️';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      toggleBtn.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

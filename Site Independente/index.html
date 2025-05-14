@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Independente Futebol Clube</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-color: #f4f4f4;
+      --text-color: #000;
+      --card-bg: #fff;
+    }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #fff;
+      --card-bg: #1e1e1e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background-color: #ffd700;
+      color: #026711;
+      display: flex;
+      align-items: center;
+      padding: 15px 25px;
+      justify-content: space-between;
+      position: relative;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    header h1 {
+      font-size: 20px;
+      text-align: center;
+      flex: 1;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background-color: #006400;
+      color: #ffd700;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      background-color: #004d00;
+    }
+
+    nav {
+      background-color: #006400;
+      padding: 10px;
+      text-align: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+
+    .main-content {
+      display: flex;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+
+    .highlight {
+      flex: 3;
+      margin-right: 20px;
+    }
+
+    .highlight img {
+      width: 36%;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .highlight h2 {
+      margin-top: 10px;
+      font-size: 20px;
+      color: #026711;
+    }
+
+    .sidebar {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 15px;
+      margin-bottom: 15px;
+      border-left: 5px solid #ffd700;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 0 20px 20px 20px;
+      gap: 10px;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 32%;
+      height: auto;
+      border-radius: 20px;
+    }
+
+    .foto img {
+      width: 50px;
+      height: auto;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 18px;
+        margin-top: 10px;
+      }
+
+      .theme-toggle {
+        position: static;
+        margin-top: 10px;
+      }
+
+      .main-content {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .highlight {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+
+      .gallery img {
+        max-width: 100%;
+      }
+
+      nav a {
+        display: block;
+        margin: 8px 0;
+      }
+
+      .foto img {
+        width: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="foto">
+      <img src="./fotos/1000219826-removebg-preview.png" alt="Logo Independente" />
+    </div>
+    <h1>
+      Independente Futebol Clube
+      <span style="font-size: 16px; display: block;">Site Oficial</span>
+    </h1>
+    <button class="theme-toggle" onclick="toggleTheme()">🌞 / 🌙</button>
+  </header>
+
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Time</a>
+    <a href="./Doação.html">Doação</a>
+    <a href="#">Amistosos</a>
+    <a href="./manuntenção.html">manutenção</a>
+    <a href="./contato.html">Contato</a>
+  </nav>
+
+  <div class="main-content">
+    <div class="highlight">
+      <img src="./fotos/1000219826-removebg-preview.png" alt="Time campeão" />
+      <h2>Torcida e Time estão em grande sintonia</h2>
+    </div>
+
+    <div class="sidebar">
+      <div class="card">
+        <h3>Clube</h3>
+        <p>Fundado em 07/09/1988<br />Anos de muitas Vitórias<br />- São Francisco do Pará</p>
+      </div>
+
+      <div class="card">
+        <h3>Jogo Anterior</h3>
+        <p>Independente 2 x 0<br />13/05/2025<br />Arena Jabuzão</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery">
+    <img src="./fotos/Independente (1) (1).webp" alt="Foto 1" />
+    <img src="./fotos/807ec8c7-2230-4136-9732-429201ba649d.jpeg" alt="Foto 2" />
+    <img src="./fotos/Esportes-Futebol-Society-800x800.jpg" alt="Foto 3" />
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>
